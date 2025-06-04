@@ -26,6 +26,14 @@ Uma aplicação web simples para gerenciamento financeiro pessoal, onde você po
 
 ---
 
+## Futuras melhorias
+
+- Responsividade para mobile
+- Alterar localStorage para BD
+- Impletentar chat com IA
+
+---
+
 ## Como usar
 
 1. Clone ou baixe o repositório.
@@ -53,7 +61,8 @@ Os dados são salvos e recuperados do `localStorage` na chave `"dados"`.
 
 ## Capturas de tela
 
-*Adicione aqui algumas imagens do seu app funcionando para ilustrar.*
+<img src="./pic1.png">
+<img src="./pic2.png">
 
 ---
 
