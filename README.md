@@ -1,4 +1,4 @@
-# Despesas.io - Assistente-financeiro
+# Despesas.io - Assistente financeiro
 
 Uma aplicação web simples para gerenciamento financeiro pessoal, onde você pode adicionar, visualizar e filtrar despesas por categorias, além de buscar por títulos. O projeto armazena os dados no `localStorage` para persistência local.
 
