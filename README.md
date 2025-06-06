@@ -28,7 +28,7 @@ Uma aplicação web simples para gerenciamento financeiro pessoal, onde você po
 
 ## Futuras melhorias
 
-- Responsividade para mobile
+- Responsividade para mobile (FINALIZADO)
 - Alterar localStorage para BD
 - Impletentar chat com IA
 
