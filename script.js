@@ -177,3 +177,22 @@ document.getElementById('menu-button').addEventListener('click', () => {
 window.addEventListener('DOMContentLoaded', () => {
     renderizarCards()
 })
+
+if (window.innerWidth <= 768) {
+    document.getElementById('main').classList.remove('full-width') // remover o ponto antes da classe
+
+    // Espera a renderização inicial
+    window.addEventListener('DOMContentLoaded', () => {
+        const totalTexto = document.getElementById('total-gasto').textContent
+
+        const totalGastos = document.createElement('div')
+        totalGastos.innerHTML = `
+            <div style="position: fixed; bottom: 0px; width: 100%; height: auto; background-color: rgba(255, 255, 255, 0.6);backdrop-filter: blur(10px); text-align: center; padding:5px;">
+                <p style="font-size:15pt;">Total gasto:</p>
+                <h1 style="font-size:17pt; color:rgb(92, 0, 179);">${totalTexto}</h1>
+            </div>
+        `
+
+        document.body.appendChild(totalGastos)
+    })
+}
