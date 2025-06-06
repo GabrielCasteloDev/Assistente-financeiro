@@ -84,6 +84,12 @@ function renderizarCards() {
 
     document.getElementById('total-gasto').textContent = totalFormatado
 
+
+    const valorTotalMobile = document.getElementById('valor-total-mobile')
+    if (valorTotalMobile) {
+        valorTotalMobile.textContent = totalFormatado
+    }
+
     // Evento de deletar card
     const botoesDeletar = container.querySelectorAll('.btn-delete')
     botoesDeletar.forEach(btn => {
@@ -179,10 +185,12 @@ window.addEventListener('DOMContentLoaded', () => {
     renderizarCards()
 })
 
-if (window.innerWidth <= 768) {
-    document.getElementById('main').classList.remove('full-width') // remover o ponto antes da classe
 
-    // Espera a renderização inicial
+
+if (window.innerWidth <= 768) {
+    document.getElementById('main').classList.remove('full-width')
+
+
     window.addEventListener('DOMContentLoaded', () => {
         const totalTexto = document.getElementById('total-gasto').textContent
 
@@ -190,7 +198,7 @@ if (window.innerWidth <= 768) {
         totalGastos.innerHTML = `
             <div style="position: fixed; bottom: 0px; width: 100%; height: auto; background-color: rgba(255, 255, 255, 0.6);backdrop-filter: blur(10px); text-align: center; padding:5px;">
                 <p style="font-size:15pt;">Total gasto:</p>
-                <h1 style="font-size:17pt; color:rgb(92, 0, 179);">${totalTexto}</h1>
+                <h1 id="valor-total-mobile" style="font-size:17pt; color:rgb(92, 0, 179);">${totalTexto}</h1>
             </div>
         `
 
@@ -199,7 +207,7 @@ if (window.innerWidth <= 768) {
 }
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(() => console.log('Service Worker registrado com sucesso!'))
-    .catch(err => console.error('Erro ao registrar o Service Worker:', err))
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('Service Worker registrado com sucesso!'))
+        .catch(err => console.error('Erro ao registrar o Service Worker:', err))
 }
