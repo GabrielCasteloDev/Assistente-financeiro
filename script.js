@@ -47,12 +47,14 @@ function renderizarCards() {
             <h3>${item.titulo}</h3>
             <h2>${valorFormatado}</h2>
             <div style="width:100%; display:flex; justify-content:space-between; align-items:center;">
-                <p class="bloco-select" style="border-radius:10px; padding:4px 10px;">
-                    ${item.select}
-                </p>
+            <div style="display:flex; width:auto; align-itens:center; justify-content:center;text-align:center;">
+                <p class="bloco-select" style="border-radius:10px; padding:4px 10px;">${item.select}</p>
+            </div>
                 <img src="./src/icon/delete.svg" class="btn-delete" data-index="${index}" style="cursor:pointer; width:24px;">
             </div>
         `
+
+        //<p style="font-size: 7pt; color: white; text-align:center;">${item.data || 'data não disponível'}</p>
 
         switch (item.select) {
             case 'casa':
@@ -94,10 +96,15 @@ function renderizarCards() {
     const botoesDeletar = container.querySelectorAll('.btn-delete')
     botoesDeletar.forEach(btn => {
         btn.addEventListener('click', (e) => {
+            let confirm = window.confirm("Realmente quer apagar essa conta?")
+            if( confirm == true){
             const index = parseInt(e.target.getAttribute('data-index'))
             obj.splice(index, 1)
             localStorage.setItem('dados', JSON.stringify(obj))
             renderizarCards()
+            } else{
+                return
+            }
         })
     })
 }
@@ -132,7 +139,9 @@ document.getElementById('button-create-card').addEventListener('click', () => {
         return
     }
 
-    obj.push({ titulo, valor, select })
+    const data = new Date().toLocaleDateString('pt-BR')
+
+    obj.push({ titulo, valor, select, data })
     localStorage.setItem('dados', JSON.stringify(obj))
 
     card.classList.toggle('off-display')
