@@ -1,16 +1,4 @@
 
-    window.addEventListener('DOMContentLoaded', () => {
-    const atualizacao = localStorage.getItem('atualizacaoV1')
-
-    if (!atualizacao) {
-        alert("🚀 Novidade: agora o app está disponível em versão mobile! Organize suas finanças de qualquer lugar 📱\n MELHORIAS:\n -Agora ao apagar os cards, haverá uma confirmação para previnir exclusões indesejadas.")
-
-        localStorage.setItem('atualizacaoV1', 'sim')
-    }
-
-    renderizarCards()
-})
-
 let obj = []
 
 // Carregar dados do localStorage na variável obj
